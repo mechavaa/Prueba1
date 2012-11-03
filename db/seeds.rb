@@ -54,6 +54,6 @@ coupons = [	{ desc: "A free coffee at 1871!",
 							business_id: 2,
 							message: "50% on your tuition fees!",
 							url: "rails.png" }]
-
+puts "rake db:seed worked!"
 Business.create businesses
 Coupon.create coupons
