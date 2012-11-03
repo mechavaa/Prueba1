@@ -22,7 +22,7 @@ class CouponsController < ApplicationController
     @coupon = Coupon.find_by_id(current_token_id)
      if current_user
      current_user.post_wall Coupon.where(:id=>params[:id]).first.message
-     #current_user.check_in Coupon.business.place
+     current_user.check_in Business.find_by_id(Coupon.where(:id=>params[:id]).first.business_id).place
      end
 
     else 
