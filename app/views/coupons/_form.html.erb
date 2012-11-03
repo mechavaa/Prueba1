@@ -11,23 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :bizname %><br />
+<div class="row span12">
+  <div class="span12">
+    <%= f.label 'Business Name' %><br />
     <%= f.text_field :bizname %>
   </div>
-  <div class="field">
-    <%= f.label :desc %><br />
+</div>
+<div class="row span12">
+  <div class="span12">
+    <%= f.label 'Description' %><br />
+    <span style="height: 1em;">
     <%= f.text_area :desc %>
+    </span>
   </div>
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
+</div>
+  <div class="row span12">
+    <div class="span12">
+      <%= f.label 'Discount Code' %><br />
+      <%= f.text_field :code %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :discount %><br />
-    <%= f.number_field :discount %>
+  <div class="row span12">
+    <div class="span12">
+      <%= f.label 'Percentage Off' %><br />
+      <%= f.number_field :discount %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row span12">
+    <div class="actions span12">
+      <%= f.submit :class => 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

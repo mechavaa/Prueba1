@@ -4,13 +4,14 @@ Facebook::Application.routes.draw do
 
 
   
-  root :to => 'static_pages#home'
+  root :to => 'static_pages#home', as: 'signin'
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
-
+  get 'about', :controller => 'static_pages', :action => 'about', as: 'about'
+  get 'contact', :controller => 'static_pages', :action => 'contact', as: 'contact'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

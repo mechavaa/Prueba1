@@ -1,13 +1,48 @@
 body {
 	margin-top: 80px;
+	font-family: 'Average Sans', 'Buenard';
+	background-image:url('furley_bg.png');
 }
 
-.navbar {
+.navbar-inner {
 background-color: #3B5998;
-border-bottom: #133783;
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3B5998), to(#133783));
+background-image: -webkit-linear-gradient(top, #3B5998, #133783);
+background-image: -o-linear-gradient(top, #3B5998, #133783);
+background-image: linear-gradient(to bottom, #3B5998, #133783);
 }
+
+.navbar .nav > li > a {
+	color: white;
+	text-shadow: none;
+}
+
+.navbar .brand {
+	color: white;
+	text-shadow: none;
+	font-family: 'Pacifico', 'Leckerli One';
+}
+
+.navbar .brand:hover {
+	color: #DDD;
+	text-shadow: none;
+}
+
+.navbar .nav > li > a:hover {
+	color: #DDD;
+	text-shadow: none;
+}
+
 
 table, tbody, .table-bordered, .table-bordered th, .table-bordered td, .table-bordered tr {
 border-color: white;
 border-left: none;
+}
+
+h1 {
+	text-align: center;
+}
+
+textarea {
+  height: auto;
 }
