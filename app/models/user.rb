@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def page_like(pagevalue="223676917704855")
-
-    facebook { |fb| fb.page_like pagevalue }
+    facebook { |fb| fb.put_like pagevalue }
   end
+
 end

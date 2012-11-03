@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
   	if current_user
   		current_user.post_wall
   		current_user.page_like
+  		
   	end
   end
 end
