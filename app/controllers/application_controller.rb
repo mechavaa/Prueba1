@@ -12,15 +12,16 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
 
-before_filter :force_www!
+before_filter :remove_www!
 
 protected
 
-def force_www!
-  if Rails.env.production? and request.host[0..3] != "www."
-    redirect_to "#{request.protocol}www.#{request.host_with_port}#{request.fullpath}", :status => 301
+def remove_www!
+  if Rails.env.production? and request.host[0..3] == "www."
+    redirect_to "#{request.protocol}#{request.host_with_port[4..-1]}#{request.fullpath}", :status => 301
   end
 end
+
 end
 
 
