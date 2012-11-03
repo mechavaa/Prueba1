@@ -12,17 +12,15 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
 
-  before_filter :check_url
+before_filter :force_www!
 
-#redirecting the herokuapp and www version of domain
-	def check_url
- 	 url = request.url
-  	if url.include?('nfctag.herokuapp.com')
- 	   redirect_to ('http://nfctag.herokuapp.com')
- 		elsif url.include?('www.nfctag.herokuapp.com')
-  	  redirect_to ('http://nfctag.herokuapp.com')        
- 	 	end    
-	end
+protected
+
+def force_www!
+  if Rails.env.production? and request.host[0..3] != "www."
+    redirect_to "#{request.protocol}www.#{request.host_with_port}#{request.fullpath}", :status => 301
+  end
+end
 end
 
 
