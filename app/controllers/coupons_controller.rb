@@ -16,7 +16,20 @@ class CouponsController < ApplicationController
   # GET /coupons/1
   # GET /coupons/1.json
   def show
-    @coupon = Coupon.find_by_id(params[:id])
+    
+    current_token_id = params[:id]  
+    if Coupon.find_by_id(current_token_id)
+    @coupon = Coupon.find_by_id(current_token_id)
+     if current_user
+     current_user.post_wall Coupon.where(:id=>params[:id]).first.message
+     #current_user.check_in Coupon.business.place
+     end
+
+    else 
+    redirect_to root_path # We need to change this is to sorry 404 page
+    end
+    
+
   end
 
   # GET /coupons/new
