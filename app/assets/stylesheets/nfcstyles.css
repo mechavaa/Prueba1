@@ -1,0 +1,13 @@
+body {
+	margin-top: 80px;
+}
+
+.navbar {
+background-color: #3B5998;
+border-bottom: #133783;
+}
+
+table, tbody, .table-bordered, .table-bordered th, .table-bordered td, .table-bordered tr {
+border-color: white;
+border-left: none;
+}
