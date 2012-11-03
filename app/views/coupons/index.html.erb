@@ -7,13 +7,6 @@
     <th>Description</th>
     <th>Discount Code</th>
     <th>Percentage Off</th>
-
-    <th>Bizname</th>
-    <th>Desc</th>
-    <th>Code</th>
-    <th>Discount</th>
-    <th>Token</th>
-
     <th></th>
     <th></th>
     <th></th>
@@ -21,7 +14,7 @@
 
 <% @coupons.each do |coupon| %>
   <tr>
-    <td><%= coupon.bizname %></i></td>
+    <td><%= coupon.business.name %></i></td>
     <td><%= coupon.desc %></td>
     <td><%= coupon.code %></td>
     <td><%= coupon.discount %></td>

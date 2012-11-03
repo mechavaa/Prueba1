@@ -11,16 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103043953) do
+ActiveRecord::Schema.define(:version => 20121103133732) do
+
+  create_table "businesses", :force => true do |t|
+    t.string   "name"
+    t.string   "place"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "coupons", :force => true do |t|
-    t.string   "bizname"
     t.text     "desc"
     t.string   "code"
     t.integer  "discount"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "token"
+    t.integer  "business_id"
   end
 
   create_table "users", :force => true do |t|

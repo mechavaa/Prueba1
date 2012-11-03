@@ -1,8 +1,9 @@
 Facebook::Application.routes.draw do
-  get "/coupons/:token" => "coupons#show"
+  resources :businesses
 
   resources :coupons
-  
+  get "/coupons/:token" => "coupons#show"
+
   root :to => 'static_pages#home'
 
 
