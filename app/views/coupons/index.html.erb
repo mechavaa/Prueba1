@@ -2,10 +2,18 @@
 
 <table class="table table-bordered table-hover">
   <tr>
+
     <th>Business Name</th>
     <th>Description</th>
     <th>Discount Code</th>
     <th>Percentage Off</th>
+
+    <th>Bizname</th>
+    <th>Desc</th>
+    <th>Code</th>
+    <th>Discount</th>
+    <th>Token</th>
+
     <th></th>
     <th></th>
     <th></th>
@@ -17,7 +25,12 @@
     <td><%= coupon.desc %></td>
     <td><%= coupon.code %></td>
     <td><%= coupon.discount %></td>
+
     <td><%= link_to 'View', coupon, :class => 'btn btn-primary'%></td>
+
+    <td><%= coupon.token %></td>
+    <td><%= link_to 'Show', coupon, :class => 'btn btn-primary' %></td>
+
     <td><%= link_to 'Edit', edit_coupon_path(coupon), :class => 'btn btn-info' %></td>
     <td><%= link_to 'Remove', coupon, :class => 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -27,4 +40,4 @@
 <br />
 
 <%= link_to 'New Coupon', new_coupon_path %>
-<i class="icon-search"></i>
+
