@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20121103133732) do
     t.string   "token"
     t.string   "url"
     t.integer  "business_id"
+    t.string   "message"
   end
 
   create_table "users", :force => true do |t|
