@@ -20,23 +20,13 @@ class User < ActiveRecord::Base
   		nil # or consider a custom null object
 	end
 
-  def post_wall(message="Tweeting Test using NFC")
+
+  def post_wall(message="Having a great time with my buddies!")
   	facebook { |fb| fb.put_wall_post message }
   end
 
-
-  def checkin
-  	facebook { |fb| fb.put_checkin(message: "Yo")}
-  end
-
-  #def page_like(pagevalue="156565477744131")
-  #  facebook { |fb| fb.put_connections(pagevalue,"likes") }
-  #end
-
-  def check_in
- 
-  facebook { |fb| fb.put_wall_post("Having a great time!", :place =>'430376657010447')}
-  #facebook { |fb| fb.put_connections('me',"checkins", :latitude =>"54.70063", :longitude=>"-1.59882", :name=>'PizzaGoGoSpenny', :id=> "317118648326356")}
-  #end
+  #Default check-in to University of Champagne, IL
+  def check_in (idstring='163536409904')
+  facebook { |fb| fb.put_wall_post("Having a great time!", :place => idstring)}
   end
 end

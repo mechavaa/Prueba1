@@ -16,12 +16,14 @@ class CouponsController < ApplicationController
   # GET /coupons/1
   # GET /coupons/1.json
   def show
-    @coupon = Coupon.find_by_token(params[:token])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @coupon }
+    
+    current_token_id = params[:id]  
+    if Coupon.find_by_id(current_token_id)
+    @coupon = Coupon.find_by_id(current_token_id)
+    else 
+    redirect_to root_path # We need to change this is to sorry 404 page
     end
+    
   end
 
   # GET /coupons/new
