@@ -19,8 +19,8 @@ class CouponsController < ApplicationController
     coupon_id = params[:id]  
     if current_user && coupon_id
       @coupon = Coupon.find_by_id(coupon_id)
-      current_user.post_wall Coupon.where(:id=>coupon_id).first.message
-      current_user.check_in Business.find_by_id(Coupon.where(:id=>coupon_id).first.business_id).place
+      current_user.post_wall @coupon.message
+      current_user.check_in @coupon.business.place
       session[:coupon_id] = nil
     else 
       redirect_to root_path # We need to change this is to sorry 404 page
