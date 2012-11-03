@@ -11,4 +11,16 @@ class User < ActiveRecord::Base
   		user.save!
   	end
   end
+
+  def facebook
+  	@facebook ||= Koala::Facebook::API.new(oauth_token)
+ 	  block_given? ? yield(@facebook) : @facebook
+		rescue Koala::Facebook::APIError => e
+  		logger.info e.to_s
+  		nil # or consider a custom null object
+	end
+
+  def post_wall(message="Default")
+  	facebook { |fb| fb.put_wall_post message }
+  end
 end
