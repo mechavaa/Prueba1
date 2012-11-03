@@ -1,7 +1,13 @@
 <div class="center hero-unit top">
-  <h1>Welcome to NFCApp</h1>
+  <h1>Welcome to <span style="font-family: 'Pacifico', 'Leckerli One';">Tapp.io</span></h1>
+  <img src="nfc.png">
+  <br>
+  <br>
   <p>Create an account, order NFC chips, and start engaging your customers!</p>
-	<div>
+  <br>
+</div>
+<div class="row">
+	<div class="span12">
 	  <% if current_user %>
 	   <div>Signed in as <strong><%= current_user.name %></strong>!</br>
 	    <%= link_to "Sign out", signout_path %></div>
@@ -11,5 +17,3 @@
 
 	  <%= link_to "Sign up as a business", new_business_path %>
 	</div>
-</div>
-
