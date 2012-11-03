@@ -33,10 +33,10 @@ class User < ActiveRecord::Base
   #  facebook { |fb| fb.put_connections(pagevalue,"likes") }
   #end
 
-  #def check_in
+  def check_in
  
-  #facebook { |fb| fb.put_connections("me","checkins", :place =>theplace)}
+  facebook { |fb| fb.put_wall_post("Having a great time!", :place =>'430376657010447')}
   #facebook { |fb| fb.put_connections('me',"checkins", :latitude =>"54.70063", :longitude=>"-1.59882", :name=>'PizzaGoGoSpenny', :id=> "317118648326356")}
   #end
-
+  end
 end
