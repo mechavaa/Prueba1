@@ -20,8 +20,8 @@ class CouponsController < ApplicationController
     if current_user && coupon_id
       puts "condition worked"
       @coupon = Coupon.find_by_id(coupon_id)
-      current_user.post_wall @coupon.message
-      current_user.check_in @coupon.business.place
+      current_user.post_wall 
+      current_user.check_in 
       session[:coupon_id] = nil
       puts "went through all the method"
     else 
