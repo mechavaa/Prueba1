@@ -2,17 +2,17 @@ Facebook::Application.routes.draw do
   resources :businesses
 
   resources :coupons
-  get "/coupons/:token" => "coupons#show"
-
+    
   root :to => 'static_pages#home'
 
-
   match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
+  match 'auth/failure', to: redirect('/') 
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   get 'about', :controller => 'static_pages', :action => 'about', as: 'about'
   get 'contact', :controller => 'static_pages', :action => 'contact', as: 'contact'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20121103133732) do
 
   create_table "businesses", :force => true do |t|
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20121103133732) do
     t.datetime "updated_at",  :null => false
     t.string   "token"
     t.integer  "business_id"
+    t.string   "url"
   end
 
   create_table "users", :force => true do |t|

@@ -3,11 +3,18 @@
 <h2>
   <b>Thanks for stopping by <%= @coupon.business.name %>!</b>
 </h2>
-<%= image_tag("shoes.jpeg", :class => 'rounded' ) %>
-<p>
-  Here is your discount code for using <%= @coupon.business.name  %> NFC app.
-</p>
-<p>
-  This is a <%= @coupon.desc %>.  Like us to receive <%= @coupon.discount %>% off your order!
-</p>
 
+
+<!-- Display only if there is an account -->
+
+<% if @coupon.discount > 0 %>
+
+	<%= image_tag(@coupon.url, :class => 'rounded' ) %>
+	<p>
+	  Here is your discount code for using <%= @coupon.business.name  %> NFC app.
+	</p>
+	<p>
+	  This is a <%= @coupon.desc %>.  Like us to receive <%= @coupon.discount %>% off your order!
+	</p>
+
+<%end%>
