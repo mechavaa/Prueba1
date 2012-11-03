@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
 	def create
 		user = User.from_omniauth(env["omniauth.auth"])
+		
 		session[:user_id] = user.id 
-		if session[:token] && session[:callback] == true
-			session[:callback] = false
-			redirect_to coupon_path(session[:token])
+		if session[:coupon_id]
+			redirect_to coupon_path(session[:coupon_id])
 		else
 			redirect_to root_path
 		end

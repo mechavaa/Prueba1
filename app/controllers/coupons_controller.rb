@@ -29,6 +29,7 @@ class CouponsController < ApplicationController
     redirect_to root_path # We need to change this is to sorry 404 page
     end
     
+
   end
 
   # GET /coupons/new
@@ -44,7 +45,7 @@ class CouponsController < ApplicationController
 
   # GET /coupons/1/edit
   def edit
-    @coupon = Coupon.find_by_token(params[:token])
+    @coupon = Coupon.find_by_id(params[:id])
   end
 
   # POST /coupons
@@ -66,7 +67,7 @@ class CouponsController < ApplicationController
   # PUT /coupons/1
   # PUT /coupons/1.json
   def update
-    @coupon = Coupon.find_by_token(params[:token])
+    @coupon = Coupon.find_by_id(params[:id])
 
     respond_to do |format|
       if @coupon.update_attributes(params[:coupon])
@@ -82,7 +83,7 @@ class CouponsController < ApplicationController
   # DELETE /coupons/1
   # DELETE /coupons/1.json
   def destroy
-    @coupon = Coupon.find_by_token(params[:token])
+    @coupon = Coupon.find_by_id(params[:id])
     @coupon.destroy
 
     respond_to do |format|
@@ -94,9 +95,8 @@ class CouponsController < ApplicationController
   private
 
   def log_in
-    if !current_user && params[:token]
-      session[:coupon_token] = params[:token]
-      session[:callback] = true
+    if !current_user 
+      session[:coupon_id] = params[:id]
       redirect_to '/auth/facebook'
     end
   end
