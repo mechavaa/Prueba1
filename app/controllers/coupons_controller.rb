@@ -1,6 +1,9 @@
 class CouponsController < ApplicationController
   # GET /coupons
   # GET /coupons.json
+
+  before_filter :log_in, :only => [:show]
+
   def index
     @coupons = Coupon.all
 
@@ -13,7 +16,7 @@ class CouponsController < ApplicationController
   # GET /coupons/1
   # GET /coupons/1.json
   def show
-    @coupon = Coupon.find(params[:id])
+    @coupon = Coupon.find_by_token(params[:token])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +37,7 @@ class CouponsController < ApplicationController
 
   # GET /coupons/1/edit
   def edit
-    @coupon = Coupon.find(params[:id])
+    @coupon = Coupon.find_by_token(params[:token])
   end
 
   # POST /coupons
@@ -56,7 +59,7 @@ class CouponsController < ApplicationController
   # PUT /coupons/1
   # PUT /coupons/1.json
   def update
-    @coupon = Coupon.find(params[:id])
+    @coupon = Coupon.find_by_token(params[:token])
 
     respond_to do |format|
       if @coupon.update_attributes(params[:coupon])
@@ -72,12 +75,22 @@ class CouponsController < ApplicationController
   # DELETE /coupons/1
   # DELETE /coupons/1.json
   def destroy
-    @coupon = Coupon.find(params[:id])
+    @coupon = Coupon.find_by_token(params[:token])
     @coupon.destroy
 
     respond_to do |format|
       format.html { redirect_to coupons_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def log_in
+    if !current_user && params[:token]
+      session[:coupon_token] = params[:token]
+      session[:callback] = true
+      redirect_to '/auth/facebook'
     end
   end
 end

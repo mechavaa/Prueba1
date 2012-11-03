@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def post_wall(message="Default")
   	facebook { |fb| fb.put_wall_post message }
   end
+
+  def checkin
+  	facebook { |fb| fb.put_checkin(message: "Yo")}
+  end
 end

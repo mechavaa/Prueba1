@@ -1,9 +1,7 @@
 Facebook::Application.routes.draw do
 
   resources :coupons
-
-
-  
+  get "/coupons/:token" => "coupons#show"
   root :to => 'static_pages#home'
 
   match 'auth/:provider/callback', to: 'sessions#create'
