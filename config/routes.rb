@@ -1,8 +1,6 @@
 Facebook::Application.routes.draw do
   resources :businesses
-
   resources :coupons
-    
   root :to => 'static_pages#home'
 
   match 'auth/:provider/callback', to: 'sessions#create'
@@ -11,6 +9,8 @@ Facebook::Application.routes.draw do
 
   get 'about', :controller => 'static_pages', :action => 'about', as: 'about'
   get 'contact', :controller => 'static_pages', :action => 'contact', as: 'contact'
+  get 'oops', :controller => 'static_pages', :action => 'oops', as: 'oops'
+
 
 
 

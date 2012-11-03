@@ -5,4 +5,6 @@ class StaticPagesController < ApplicationController
   	 current_user.check_in
   	 end
   end
+  def oops
+  end
 end
