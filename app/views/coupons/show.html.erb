@@ -1,20 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="top">
 
-<h2>
-  <b>Thanks for stopping by <%= @coupon.business.name %>!</b>
-</h2>
+	<p id="notice"><%= notice %></p>
 
+	<!-- Display only if there is an account -->
 
-<!-- Display only if there is an account -->
+	<% if @coupon.discount > 0 %>
 
-<% if @coupon.discount > 0 %>
+	<div class="row show">
+		<div class="span12 show">
+			<h2><b>Thanks for stopping by <%= @coupon.business.name %>!</b></h2>
+			<br>
+			<%= image_tag(@coupon.url, :class => 'rounded' ) %>
+			<br>
+			<br>
+			<h3><%= @coupon.code %></h3>
+			<p>Thanks for checking in at <%= @coupon.business.name  %>!</p>  
+			<p>Show this coupon to the cashier to receive <%= @coupon.desc %>, good for <%= @coupon.discount %>% off your order!</p>
+		</div>	
+	</div>
 
-	<%= image_tag(@coupon.url, :class => 'rounded' ) %>
-	<p>
-	  Here is your discount code for using <%= @coupon.business.name  %> NFC app.
-	</p>
-	<p>
-	  This is a <%= @coupon.desc %>.  Like us to receive <%= @coupon.discount %>% off your order!
-	</p>
-
-<%end%>
+	<%end%>
+</div>
