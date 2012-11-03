@@ -16,17 +16,16 @@ class CouponsController < ApplicationController
   # GET /coupons/1
   # GET /coupons/1.json
   def show
-    
-    current_token_id = params[:id]  
-    if Coupon.find_by_id(current_token_id)
-    @coupon = Coupon.find_by_id(current_token_id)
-     if current_user
-     current_user.post_wall Coupon.where(:id=>params[:id]).first.message
-     current_user.check_in Business.find_by_id(Coupon.where(:id=>params[:id]).first.business_id).place
-     end
-
+    coupon_id = params[:id]  
+    if current_user && coupon_id
+      puts "condition worked"
+      @coupon = Coupon.find_by_id(coupon_id)
+      current_user.post_wall 
+      current_user.check_in 
+      session[:coupon_id] = nil
+      puts "went through all the method"
     else 
-    redirect_to root_path # We need to change this is to sorry 404 page
+      redirect_to root_path # We need to change this is to sorry 404 page
     end
     
 
