@@ -1,7 +1,10 @@
 body {
-	margin-top: 80px;
 	font-family: 'Average Sans', 'Buenard';
 	background-image:url('furley_bg.png');
+}
+
+.container {
+	margin-top: 
 }
 
 .navbar-inner {
@@ -47,3 +50,10 @@ textarea {
   height: auto;
 }
 
+.show {
+	text-align: center;
+}
+
+.top {
+	margin-top: 80px;
+}
