@@ -26,7 +26,7 @@ class CouponsController < ApplicationController
      end
 
     else 
-    redirect_to root_path # We need to change this is to sorry 404 page
+    redirect_to oops_path # We need to change this is to sorry 404 page
     end
     
 
